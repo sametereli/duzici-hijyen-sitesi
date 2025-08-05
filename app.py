@@ -1,4 +1,4 @@
-from flask import Flask, render_template, json, Response # Response'u ekledik
+from flask import Flask, render_template, json, Response, url_for # url_for ve Response'u ekledik
 
 app = Flask(__name__)
 
@@ -59,12 +59,37 @@ def anasayfa():
     # Hizmet katalogunu şablona gönderiyoruz.
     return render_template('index.html', hizmet_katalogu_json=json.dumps(hizmet_katalogu))
 
-# robots.txt dosyası için yeni bir route ekliyoruz
+# robots.txt dosyası için rota
 @app.route('/robots.txt')
 def robots():
-    # robots.txt içeriği: Tüm arama motorlarına tüm siteyi tarama izni verir
     robots_content = "User-agent: *\nAllow: /"
     return Response(robots_content, mimetype='text/plain')
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# sitemap.xml dosyası için rota
+@app.route('/sitemap.xml')
+def sitemap():
+    # Sitenizdeki tüm URL'leri burada listeleyin
+    # Bu örnekte sadece ana sayfa için basit bir örnek var
+    # Sitenizdeki diğer sayfalar için de benzer <url> etiketleri eklemelisiniz
+    urls = []
+    urls.append({
+        'loc': url_for('anasayfa', _external=True), # Ana sayfa URL'si
+        'lastmod': '2025-08-06', # Son güncelleme tarihi (manuel olarak güncelleyebilirsiniz)
+        'priority': '1.0' # Sayfanın önceliği (1.0 en yüksek)
+    })
+    # Örnek: Eğer hizmetleriniz için ayrı sayfalarınız varsa, onları da ekleyin
+    # for hizmet_turu in hizmet_katalogu:
+    #     urls.append({
+    #         'loc': url_for('hizmet_detay_sayfasi', tur=hizmet_turu, _external=True),
+    #         'lastmod': '2025-08-06',
+    #         'priority': '0.8'
+    #     })
+
+    # templates klasöründeki sitemap.xml şablonunu kullanarak içeriği oluştur
+    sitemap_content = render_template('sitemap.xml', urls=urls)
+    # XML olarak geri döndür
+    return Response(sitemap_content, mimetype='application/xml')
+
+# PythonAnywhere için bu satırı yorum satırı yapın veya silin
+# if __name__ == '__main__':
+#     app.run(debug=True)
