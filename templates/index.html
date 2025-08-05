@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Düzici Hijyen - Düziçi Bina, Ev ve Ofis Temizlik Hizmetleri</title>
+    <meta name="description" content="Düzici Hijyen, Düziçi ve çevresinde profesyonel bina, apartman, ev ve ofis temizliği hizmetleri sunar. Online fiyat hesaplayıcımızla anında teklif alın!">
+    <meta name="keywords" content="düzici temizlik, düzici hijyen, düzici bina temizliği, düzici apartman temizliği, osmaniye temizlik şirketi, ev temizliği düzici, ofis temizliği düzici">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='stil.css') }}">
+
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1416380686260811');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1416380686260811&ev=PageView&noscript=1"
+    /></noscript>
+    </head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">DÜZİÇİ HİJYEN TEMİZLİK</div>
+            <a href="tel:+905458744502" class="phone-link">
+                📞 <span class="phone-text">0545 874 45 02</span>
+            </a>
+        </div>
+    </nav>
+
+    <section class="hizmetler-section">
+        <h2>HİZMETLERİMİZ</h2>
+        <p class="hizmetler-aciklama">Standart paketlere son. İhtiyacınız olan temizliği siz belirleyin, size özel teklifinizi şeffaf bir şekilde anında görün.</p>
+        <div class="hizmet-kartlari">
+            <div class="hizmet-kart">
+                <h3>Bina & Apartman Temizliği</h3>
+                <p>Ortak yaşam alanlarınızın periyodik temizliği ve hijyeni için profesyonel çözümler.</p>
+                <button class="cta-button modal-tetikleyici" data-hizmet-tipi="bina">Fiyat Öğren</button>
+            </div>
+            <div class="hizmet-kart">
+                <h3>Ev Temizliği</h3>
+                <p>Evinizin her köşesi için detaylı, güvenilir ve size özel temizlik hizmetleri.</p>
+                <button class="cta-button modal-tetikleyici" data-hizmet-tipi="ev">Fiyat Öğren</button>
+            </div>
+            <div class="hizmet-kart">
+                <h3>Ofis & İş Yeri Temizliği</h3>
+                <p>Çalışma ortamınızın verimliliğini ve konforunu artıracak profesyonel temizlik.</p>
+                <button class="cta-button modal-tetikleyici" data-hizmet-tipi="ofis">Fiyat Öğren</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <h2>MÜŞTERİLERİMİZ NE DEDİ?</h2>
+            <div class="testimonial-cards">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Gerçekten nokta atışı bir hizmet. Apartmanımızın aylık temizliği için anlaştık ve ilk günden farkı gördük. Ekip hem çok titiz hem de çok profesyonel."</p>
+                    <div class="testimonial-author"><span class="author-name">Ahmet Y.</span><span class="author-title">Apartman Yöneticisi</span><span class="stars">★★★★★</span></div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Ofisimiz için düzenli temizlik hizmeti alıyoruz. Özellikle pandemi sonrası hijyen konusundaki hassasiyetleri için Düzici Hijyen'i tercih ettik. Gönül rahatlığıyla tavsiye ederim."</p>
+                    <div class="testimonial-author"><span class="author-name">Zeynep K.</span><span class="author-title">Ofis Müdürü</span><span class="stars">★★★★★</span></div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Taşınma sonrası ev temizliği için anlaştım ve sonuç harikaydı. Vaktim çok kısıtlıydı, tam zamanında gelip pırıl pırıl bir ev teslim ettiler. Emeğinize sağlık."</p>
+                    <div class="testimonial-author"><span class="author-name">Elif S.</span><span class="author-title">Ev Sahibi</span><span class="stars">★★★★★</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="fiyatModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalBaslik">Fiyat Teklifi</h2>
+            <div class="modal-step">
+                <h4>Planınızı Belirleyin</h4>
+                <div id="modalFrekansSecenekleri"></div>
+            </div>
+            <div class="modal-step">
+                <h4>Paketinize Neler Dahil Olsun?</h4>
+                <div id="modalHizmetListesi" class="service-list"></div>
+            </div>
+            <div class="modal-step" id="modalEklentiBolumu" style="display: none;">
+                <h4>Ekstra Hizmetler Ekleyin</h4>
+                <div id="modalEklentiListesi"></div>
+            </div>
+            <div class="toplam-fiyat-kutusu">
+                <h3><span id="fiyatBirim"></span> Toplam: <span id="toplamFiyat">0.00</span> TL</h3>
+                <a href="#" id="teklifGonderBtn" class="button-gonder" style="display: none;" target="_blank">
+                    WhatsApp ile Teklif İste
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const hizmetKatalogu = JSON.parse('{{ hizmet_katalogu_json | safe }}');
+    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='particles-config.js') }}"></script>
+</body>
+</html>
