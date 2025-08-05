@@ -1,4 +1,4 @@
-from flask import Flask, render_template, json
+from flask import Flask, render_template, json, Response # Response'u ekledik
 
 app = Flask(__name__)
 
@@ -58,6 +58,13 @@ hizmet_katalogu = {
 def anasayfa():
     # Hizmet katalogunu şablona gönderiyoruz.
     return render_template('index.html', hizmet_katalogu_json=json.dumps(hizmet_katalogu))
+
+# robots.txt dosyası için yeni bir route ekliyoruz
+@app.route('/robots.txt')
+def robots():
+    # robots.txt içeriği: Tüm arama motorlarına tüm siteyi tarama izni verir
+    robots_content = "User-agent: *\nAllow: /"
+    return Response(robots_content, mimetype='text/plain')
 
 if __name__ == '__main__':
     app.run(debug=True)
